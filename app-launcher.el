@@ -171,7 +171,9 @@ This function always returns its elements in a stable order."
              (len (cdr (assq 'len (gethash choice app-launcher--cache)))))
     (concat
      (make-string (+ 2 (if (or (bound-and-true-p vertico-mode)
-                               (bound-and-true-p ivy-mode))
+                               (bound-and-true-p ivy-mode)
+                               (bound-and-true-p selectrum-mode)
+                               (bound-and-true-p helm-mode))
                            (- app-launcher--curr-max-name-len len)
                          0))
                   ?\s)
@@ -208,7 +210,7 @@ When ARG is non-nil, ignore NoDisplay property in *.desktop files."
 						    app-launcher--annotation-function
 						    choice))))
 		      (complete-with-action flag candidates str pred)))
-		  (lambda (x y)
+		  (lambda (x &optional y)
 		    (if arg
 			t
 		      (cdr (assq 'visible y))))
