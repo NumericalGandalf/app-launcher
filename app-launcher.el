@@ -172,7 +172,7 @@ This function always returns its elements in a stable order."
     (concat
      (make-string (+ 2 (if icomplete-mode
                            0
-                         (- app-launcher--curr-max-name-len)))
+                         (- app-launcher--curr-max-name-len len)))
                   ?\s)
      (propertize str 'face 'completions-annotations))))
 
