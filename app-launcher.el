@@ -143,11 +143,8 @@ This function always returns its elements in a stable order."
 	      (puthash name
 		       (list (cons 'file file)
 			     (cons 'exec exec)
-<<<<<<< HEAD
                              (cons 'path path)
-=======
 			     (cons 'comment (or comment ""))
->>>>>>> origin/alignment
 			     (cons 'visible visible)
                              (cons 'len (app-launcher--name-len name)))
 		       hash))))))))
@@ -173,12 +170,9 @@ This function always returns its elements in a stable order."
   (when-let ((str (cdr (assq 'comment (gethash choice app-launcher--cache))))
              (len (cdr (assq 'len (gethash choice app-launcher--cache)))))
     (concat
-<<<<<<< HEAD
-=======
      (make-string (+ 2 (if icomplete-mode
                            0
-                         (- app-launcher--curr-max-name-len len)))
->>>>>>> origin/alignment
+                         (- app-launcher--curr-max-name-len
                   ?\s)
      (propertize str 'face 'completions-annotations))))
 
